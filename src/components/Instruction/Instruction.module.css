@@ -1,0 +1,60 @@
+.discriptionBlock {
+    background: #EFEFEF;
+    width: 855px;
+    border-radius: 30px;
+    margin-left: 520px;
+}
+
+.discription {
+    padding: 67px 87px;
+}
+
+.discription h1 {
+    font-family: SF Pro Display Regular;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 60px;
+}
+
+.discription h2 {
+    font-family: SF Pro Display Regular;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+}
+
+.text {
+    padding-left: 15px;
+}
+
+.text p {
+    font-family: SF Pro Display Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+.text li {
+    padding-left: 6px;
+    font-family: SF Pro Display Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 25px;
+    list-style-type: decimal;
+}
+
+/*.line {*/
+/*    margin-top: 48px;*/
+/*    width: 71px;*/
+/*    background: #2A2A2A;*/
+/*}*/
+
+.discription hr {
+    margin-top: 48px;
+    width: 71px;
+    height: 2px;
+    background: #2A2A2A;
+}

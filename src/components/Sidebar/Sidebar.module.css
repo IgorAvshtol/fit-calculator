@@ -1,0 +1,101 @@
+.sidebar {
+    width: 430px;
+    background: darkkhaki;
+    position: fixed;
+}
+
+.time {
+    padding-top: 46px;
+}
+
+.clock {
+    font-family: SF Pro Display Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 52px;
+    line-height: 44px;
+    letter-spacing: 0.400345px;
+}
+
+.date {
+    font-family: SF Pro Display Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: 0.45px;
+}
+
+.navigation {
+    padding-top: 122px;
+    width: 345px;
+    height: 200px;
+    /*background: #bdb644;*/
+}
+
+.purpose {
+    height: 91px;
+    background: #c26262;
+    border-radius: 13px;
+    background: linear-gradient(126.6deg, rgba(255, 255, 255, 0.3) 28.69%, rgba(255, 255, 255, 0.24) 100%);
+}
+
+.purposeContent {
+    padding: 23px 14px;
+    display: flex;
+}
+
+.circle {
+    background: #91C6A0;
+    clip-path: circle(50%);
+    height: 45px;
+    width: 45px;
+}
+
+.purposeText {
+    text-wrap: normal;
+    padding-left: 16px;
+    font-family: SF Pro Display Regular;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19px;
+}
+
+.purposeText div {
+    font-family: SF UI Text;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+
+}
+
+.calculation {
+    padding-top: 24px;
+    height: 91px;
+    width: 300px;
+    opacity: 0.6;
+}
+
+.calculationContent {
+    padding: 23px 14px;
+    display: flex;
+    background: linear-gradient(126.6deg, rgba(255, 255, 255, 0.3) 28.69%, rgba(255, 255, 255, 0.24) 100%);
+    border-radius: 13px;
+
+}
+
+.calculationText {
+    text-wrap: normal;
+    padding-left: 16px;
+    font-family: SF Pro Display Regular;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19px
+}
+
+.calculationText div {
+    font-family: SF UI Text;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+}
