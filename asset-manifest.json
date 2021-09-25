@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/fit-calculator/static/css/main.ae1eb126.chunk.css",
+    "main.js": "/fit-calculator/static/js/main.c69b05f0.chunk.js",
+    "main.js.map": "/fit-calculator/static/js/main.c69b05f0.chunk.js.map",
+    "runtime-main.js": "/fit-calculator/static/js/runtime-main.9ad9183b.js",
+    "runtime-main.js.map": "/fit-calculator/static/js/runtime-main.9ad9183b.js.map",
+    "static/js/2.e01298a8.chunk.js": "/fit-calculator/static/js/2.e01298a8.chunk.js",
+    "static/js/2.e01298a8.chunk.js.map": "/fit-calculator/static/js/2.e01298a8.chunk.js.map",
+    "static/js/3.b66d00e5.chunk.js": "/fit-calculator/static/js/3.b66d00e5.chunk.js",
+    "static/js/3.b66d00e5.chunk.js.map": "/fit-calculator/static/js/3.b66d00e5.chunk.js.map",
+    "index.html": "/fit-calculator/index.html",
+    "static/css/main.ae1eb126.chunk.css.map": "/fit-calculator/static/css/main.ae1eb126.chunk.css.map",
+    "static/js/2.e01298a8.chunk.js.LICENSE.txt": "/fit-calculator/static/js/2.e01298a8.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/fit-calculator/static/media/SFUIText-Regular.865a0aa3.woff",
+    "static/media/btnCoverDarkDown.b6780fef.png": "/fit-calculator/static/media/btnCoverDarkDown.b6780fef.png",
+    "static/media/btnCoverDarkUp.ea02d5a1.png": "/fit-calculator/static/media/btnCoverDarkUp.ea02d5a1.png",
+    "static/media/btnCoverDown.e21e7dc4.png": "/fit-calculator/static/media/btnCoverDown.e21e7dc4.png",
+    "static/media/btnCoverUp.cc4eb8c8.png": "/fit-calculator/static/media/btnCoverUp.cc4eb8c8.png",
+    "static/media/foodCover.c2c3e7e7.png": "/fit-calculator/static/media/foodCover.c2c3e7e7.png",
+    "static/media/foodCoverDark.f177e64d.png": "/fit-calculator/static/media/foodCoverDark.f177e64d.png",
+    "static/media/Calculator.module.css": "/fit-calculator/static/media/howUseDark.1f3c16c3.png",
+    "static/media/howUseCover.0a16a3a9.png": "/fit-calculator/static/media/howUseCover.0a16a3a9.png",
+    "static/media/howUseCoverDark.1c2b3c25.png": "/fit-calculator/static/media/howUseCoverDark.1c2b3c25.png",
+    "static/media/Main.module.css": "/fit-calculator/static/media/mainDark.4262b83d.png",
+    "static/media/Instruction.module.css": "/fit-calculator/static/media/noise.9c4ad07b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9ad9183b.js",
+    "static/js/2.e01298a8.chunk.js",
+    "static/css/main.ae1eb126.chunk.css",
+    "static/js/main.c69b05f0.chunk.js"
+  ]
+}
