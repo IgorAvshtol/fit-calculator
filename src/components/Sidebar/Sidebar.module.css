@@ -1,7 +1,7 @@
 .sidebar {
     width: 430px;
-    background: darkkhaki;
-    position: fixed;
+    position: sticky;
+    top: 70px;
 }
 
 .time {
@@ -30,14 +30,34 @@
     padding-top: 122px;
     width: 345px;
     height: 200px;
-    /*background: #bdb644;*/
 }
 
 .purpose {
     height: 91px;
-    background: #c26262;
     border-radius: 13px;
     background: linear-gradient(126.6deg, rgba(255, 255, 255, 0.3) 28.69%, rgba(255, 255, 255, 0.24) 100%);
+}
+
+.purposeDark {
+    height: 91px;
+    border-radius: 13px;
+    background: #262323;
+}
+
+.purposeScroll {
+    height: 91px;
+    width: 300px;
+    border-radius: 13px;
+    background: linear-gradient(126.6deg, rgba(255, 255, 255, 0.3) 28.69%, rgba(255, 255, 255, 0.24) 100%);
+    opacity: 0.6;
+}
+
+.purposeScrollDark {
+    height: 91px;
+    width: 300px;
+    border-radius: 13px;
+    background: #000000;
+    opacity: 0.6;
 }
 
 .purposeContent {
@@ -45,8 +65,29 @@
     display: flex;
 }
 
+.purposeContentScroll {
+    padding: 23px 14px;
+    display: flex;
+    background: linear-gradient(126.6deg, rgba(255, 255, 255, 0.3) 28.69%, rgba(255, 255, 255, 0.24) 100%);
+    border-radius: 13px;
+}
+
+.purposeContentScrollDark {
+    padding: 23px 14px;
+    display: flex;
+    background: #262323;
+    border-radius: 13px;
+}
+
 .circle {
     background: #91C6A0;
+    clip-path: circle(50%);
+    height: 45px;
+    width: 45px;
+}
+
+.circleDark {
+    background: #42a5f5;
     clip-path: circle(50%);
     height: 45px;
     width: 45px;
@@ -66,7 +107,6 @@
     font-style: normal;
     font-weight: normal;
     font-size: 15px;
-
 }
 
 .calculation {
@@ -76,12 +116,24 @@
     opacity: 0.6;
 }
 
+.calculationScroll {
+    padding-top: 24px;
+    height: 91px;
+    width: 345px;
+}
+
 .calculationContent {
     padding: 23px 14px;
     display: flex;
     background: linear-gradient(126.6deg, rgba(255, 255, 255, 0.3) 28.69%, rgba(255, 255, 255, 0.24) 100%);
     border-radius: 13px;
+}
 
+.calculationContentDark {
+    padding: 23px 14px;
+    display: flex;
+    background: #262323;
+    border-radius: 13px;
 }
 
 .calculationText {

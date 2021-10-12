@@ -1,11 +1,11 @@
 import React from 'react';
-import { CreateCalculator } from "./components/CreateCalculator/CreateCalculator";
+import { Main } from './components/Main/Main';
 
 
 function App() {
   return (
-    <div >
-      <CreateCalculator/>
+    <div>
+      <Main/>
     </div>
   );
 }

@@ -1,8 +1,10 @@
 .main {
-    background: url("../../assets/main.png") 550px 116px no-repeat fixed;
-    background-size: cover;
-    position: relative;
+    background:#E5E5E5 url("../../assets/main.png") 300px 615px no-repeat ;
 }
 
+.mainDark {
+    background:#000000 url("../../assets/mainDark.png") 300px 598px no-repeat ;
+    color: #FFFFFF;
+}
 
 

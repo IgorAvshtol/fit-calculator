@@ -1,4 +1,11 @@
-.container {
+.wrapper {
+    position: relative;
+    max-width: 1440px;
+    padding: 0 28px;
     margin: 0 auto;
-    padding: 70px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
 }

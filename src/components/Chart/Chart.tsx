@@ -1,16 +1,15 @@
-import { Pie } from "react-chartjs-2";
-import React from "react";
-import "chartjs-plugin-datalabels";
-
+import React from 'react';
+import 'chartjs-plugin-datalabels';
+import { Pie } from 'react-chartjs-2';
 
 const data = {
   options: {
     plugins: {
       datalabels: {
-        color: "white",
-        textAlign: "center",
+        color: 'white',
+        textAlign: 'center',
         font: {
-          weight: "bold",
+          weight: 'bold',
           size: 30
         }
       }

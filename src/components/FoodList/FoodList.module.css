@@ -1,6 +1,5 @@
 .scrollBlock {
     height: 374px;
-    background: #bd3434;
     display: flex;
     flex-direction: column;
     overflow: scroll;
@@ -22,14 +21,30 @@
     border-radius: 2px;
 }
 
-
 .foodTitle {
     display: flex;
     align-items: center;
     min-height: 48px;
-    width: 100%;
+    /*width: 100%;*/
     background: rgba(255, 255, 255, 0.7);
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #EFEFEF;;
+    padding-left: 35px;
+    font-family: SF Pro Display Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+
+    border-radius: 10px;
+}
+
+.foodTitleDark {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    width: 100%;
+    background: rgba(39, 39, 39, 0.7);
+    border-bottom: 2px solid #0e0d0d;
     padding-left: 35px;
     font-family: SF Pro Display Regular;
     font-style: normal;

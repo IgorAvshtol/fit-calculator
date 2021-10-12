@@ -1,9 +1,12 @@
-import s from "../../style/Container.module.css";
-import style from "./Instruction.module.css";
+import style from './Instruction.module.css';
 
-export function Instruction() {
+type themeInstructionType = {
+  theme: boolean
+}
+
+export function Instruction(props: themeInstructionType) {
   return (
-    <div className={style.discriptionBlock}>
+    <div className={props.theme ? style.discriptionBlock : style.discriptionBlockBlack}>
       <div className={style.discription}>
         <h1>Будь честен сам с собой</h1>
         <h2>Шаг 1. Выбери цель</h2>
@@ -41,10 +44,8 @@ export function Instruction() {
           <li>Чтобы увеличивать вес, ты должен потреблять больше калорий, находиться в избытке калорий.</li>
           Всё, никаких других вариантов развития событий науке не известно. Только эти два.
         </div>
-        <hr></hr>
-
+        <hr className={props.theme ? style.discriptionHr : style.discriptionHrDark}/>
       </div>
-
     </div>
   )
 }
