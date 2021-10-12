@@ -1,9 +1,8 @@
 import style from './FoodList.module.css';
 import { useDispatch, useSelector } from "react-redux";
-import { useDrag, useDrop } from "react-dnd";
-import React, { Dispatch, SetStateAction, useEffect } from "react";
+import React from "react";
 import { AppRootStateType } from "../../redux/store";
-import { FoodType, getUsers, ProfileStateType, replaceFood, UsersType } from "../../redux/reducers";
+import { replaceFood, UsersType } from "../../redux/reducers";
 
 const foodList = [
   'Молоко',

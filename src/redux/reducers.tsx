@@ -23,7 +23,12 @@ export type LocationUsersType = {
   country: string
 }
 
-export type ProfileStateType = {
+export type productType = {
+  id: number;
+  name: string;
+}
+
+export type stateType = {
   outputFoodList: UsersType[];
   inputFoodList: UsersType[]
 }
@@ -33,7 +38,7 @@ const initialState = {
   inputFoodList: []
 }
 
-export const foodsReducer = (state: ProfileStateType = initialState, action: ActionsType) => {
+export const foodsReducer = (state: stateType = initialState, action: ActionsType) => {
   switch (action.type) {
     case 'GET_FOODS_LIST': {
       return {
