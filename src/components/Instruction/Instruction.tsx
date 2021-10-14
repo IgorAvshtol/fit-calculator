@@ -1,4 +1,4 @@
-import style from './Instruction.module.css';
+import style from './Instruction.module.scss';
 
 type themeInstructionType = {
   theme: boolean
@@ -6,7 +6,7 @@ type themeInstructionType = {
 
 export function Instruction(props: themeInstructionType) {
   return (
-    <div className={props.theme ? style.discriptionBlock : style.discriptionBlockBlack}>
+    <div className={props.theme ? style.discriptionBlock : style.discriptionBlockBlack} id={'instruction'}>
       <div className={style.discription}>
         <h1>Будь честен сам с собой</h1>
         <h2>Шаг 1. Выбери цель</h2>

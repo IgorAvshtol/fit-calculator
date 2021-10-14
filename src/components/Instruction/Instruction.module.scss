@@ -1,3 +1,5 @@
+@import '../../styles/sass/mixins';
+
 .discriptionBlock {
     background: url("../../assets/noise.png") 0 0/cover no-repeat rgba(241, 240, 232, 0.58);
     max-width: 825px;
@@ -15,18 +17,13 @@
 }
 
 .discription h1 {
-    font-family: SF Pro Display Regular;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 50px;
-    line-height: 60px;
+    @include text(50px, 60px, 600, normal);
+    font-family: $fontFamily;
 }
 
 .discription h2 {
-    font-family: SF Pro Display Regular;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 32px;
+    @include text(32px, 30px, 600, normal);
+    font-family: $fontFamily;
 }
 
 .text {
@@ -34,20 +31,14 @@
 }
 
 .text p {
-    font-family: SF Pro Display Regular;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 25px;
+    @include text(16px, 25px, 500, normal);
+    font-family: $fontFamily;
 }
 
 .text li {
     padding-left: 6px;
-    font-family: SF Pro Display Regular;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 25px;
+    @include text(16px, 25px, 500, normal);
+    font-family: $fontFamily;
     list-style-type: decimal;
 }
 

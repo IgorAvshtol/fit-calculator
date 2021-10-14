@@ -1,26 +1,14 @@
-import style from './FoodConfirmedList.module.css';
-import axios from 'axios'
-import { useDispatch, useSelector } from "react-redux";
-import { deleteFood, FoodType } from "../../redux/reducers";
-import { AppRootStateType } from "../../redux/store";
-import { DropTargetMonitor, useDrag, useDrop, XYCoord } from "react-dnd";
+import { Dispatch, SetStateAction, useRef } from 'react';
+
+import { useDispatch } from 'react-redux';
+import { deleteFood } from '../../redux/reducers';
+
+import style from './FoodConfirmedList.module.scss';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
-import { Dispatch, SetStateAction, useRef } from "react";
 
-const foodConfirmedList = [
-  'Молоко',
-  'Огурец',
-  'Банан',
-  'Хлеб',
-  'Сыр',
-  'Печенье',
-  'Киви',
-  'Свёкла',
-  'Творог',
-  'Говядина',
-  'Свинина'
-];
+import { DropTargetMonitor, useDrag, useDrop, XYCoord } from 'react-dnd';
+
 
 type themeFoodConfirmedListType = {
   theme: boolean,
@@ -28,17 +16,8 @@ type themeFoodConfirmedListType = {
   item: string
   dragMode: boolean
   setDragMode: Dispatch<SetStateAction<boolean>>
-  // playerType: string
-  // onDropPlayer: (item: any)=>void
   index: number
   id: number
-}
-
-export interface CardProps {
-  id: any
-  text: string
-  index: number
-  moveCard: (dragIndex: number, hoverIndex: number) => void
 }
 
 interface DragItem {
@@ -47,15 +26,7 @@ interface DragItem {
   type: string
 }
 
-export function FoodConfirmedList({
-                                    theme,
-                                    moveCard,
-                                    index,
-                                    item,
-                                    id,
-                                    dragMode,
-                                    setDragMode
-                                  }: themeFoodConfirmedListType) {
+export function FoodConfirmedList({theme, moveCard, index, item, id, dragMode, setDragMode}: themeFoodConfirmedListType) {
 
   const dispatch = useDispatch();
 
@@ -71,8 +42,8 @@ export function FoodConfirmedList({
       if (!ref.current) {
         return
       }
-      const dragIndex = item.index
-      const hoverIndex = index
+      const dragIndex = item.index;
+      const hoverIndex = index;
 
       // Don't replace items with themselves
       if (dragIndex === hoverIndex) {
@@ -80,17 +51,17 @@ export function FoodConfirmedList({
       }
 
       // Determine rectangle on screen
-      const hoverBoundingRect = ref.current?.getBoundingClientRect()
+      const hoverBoundingRect = ref.current?.getBoundingClientRect();
 
       // Get vertical middle
       const hoverMiddleY =
-        (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2
+        (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
 
       // Determine mouse position
-      const clientOffset = monitor.getClientOffset()
+      const clientOffset = monitor.getClientOffset();
 
       // Get pixels to the top
-      const hoverClientY = (clientOffset as XYCoord).y - hoverBoundingRect.top
+      const hoverClientY = (clientOffset as XYCoord).y - hoverBoundingRect.top;
 
       // Only perform the move when the mouse has crossed half of the items height
       // When dragging downwards, only move when the cursor is below 50%
@@ -107,15 +78,15 @@ export function FoodConfirmedList({
       }
 
       // Time to actually perform the action
-      moveCard(dragIndex, hoverIndex)
+      moveCard(dragIndex, hoverIndex);
 
       // Note: we're mutating the monitor item here!
       // Generally it's better to avoid mutations,
       // but it's good here for the sake of performance
       // to avoid expensive index searches.
-      item.index = hoverIndex
+      item.index = hoverIndex;
     },
-  })
+  });
   console.log(handlerId);
 
   const [, drag] = useDrag({
@@ -126,11 +97,11 @@ export function FoodConfirmedList({
     collect: (monitor: any) => ({
       isDragging: monitor.isDragging(),
     }),
-  })
-  drag(drop(ref))
-  return (
-    // <div className={style.scrollBlock}>
+  });
 
+  drag(drop(ref));
+
+  return (
     <div ref={ref} className={theme ? style.title : style.titleDark} data-handler-id={handlerId}>
       <DehazeIcon className={theme ? style.dehazeIcon : style.dehazeIconDark}
                   style={dragMode ? {opacity: 0.6} : {opacity: 0.2}}
@@ -138,13 +109,8 @@ export function FoodConfirmedList({
       />
       {item}
       {dragMode
-        ? <RemoveCircleOutlineIcon className={style.removeIcon}
-                                   style={{opacity: 0.6}}
-                                   onClick={() => dispatch(deleteFood(id))}/>
+        ? <RemoveCircleOutlineIcon className={style.removeIcon} style={{opacity: 0.6}} onClick={() => dispatch(deleteFood(id))}/>
         : null
       }
     </div>)
-
-  // </div>
-
 }

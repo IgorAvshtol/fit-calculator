@@ -6,7 +6,11 @@ import { FoodConfirmedList } from '../FoodConfirmedList/FoodConfirmedList';
 import { Chart } from '../Chart/Chart';
 import { FoodCalories } from '../FoodCalories/FoodCalories';
 
-import style from './Calculator.module.css';
+import { AppRootStateType } from '../../redux/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { getFoodCalories, getUsers, UsersType } from '../../redux/reducers';
+
+import style from './Calculator.module.scss';
 import SearchIcon from '@mui/icons-material/Search';
 
 import coverBtnUp from '../../assets/btnCoverUp.png';
@@ -17,11 +21,10 @@ import howToUseCover from '../../assets/howUseCover.png';
 import howToUseCoverDark from '../../assets/howUseCoverDark.png';
 import foodCover from '../../assets/foodCover.png';
 import foodCoverDark from '../../assets/foodCoverDark.png';
-import { useDispatch, useSelector } from "react-redux";
-import { getUsers, UsersType } from "../../redux/reducers";
-import { HTML5Backend } from "react-dnd-html5-backend";
-import { DndProvider } from "react-dnd";
-import { AppRootStateType } from "../../redux/store";
+
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { DndProvider } from 'react-dnd';
+
 
 type themeCalculatorType = {
   theme: boolean
@@ -31,19 +34,17 @@ export function Calculator(props: themeCalculatorType) {
 
   const dispatch = useDispatch();
   // @ts-ignore
-  const food = useSelector<AppRootStateType, UsersType[]>(state => state.foods.outputFoodList);
+  const finalProducts = useSelector<AppRootStateType, UsersType[]>(state => state.foods.outputFoodList);
 
-  const [foods, setFoods] = useState<UsersType[]>(food);
+  const [foods, setFoods] = useState<UsersType[]>(finalProducts);
 
-  useEffect(()=>{
-    setFoods(food)
-  },[food]);
+  useEffect(() => {
+    setFoods(finalProducts)
+  }, [finalProducts]);
 
-  useEffect(()=>{
-    dispatch(getUsers(1,10))
-  },[]);
-
-  const [profileId, setProfileId] = useState<number>(5);
+  useEffect(() => {
+    dispatch(getUsers(1, 10))
+  }, []);
 
   const purposeContent = [
     'Снизить вес',
@@ -61,17 +62,6 @@ export function Calculator(props: themeCalculatorType) {
     'Тяжёлая',
   ];
 
-  // const [foods, setFoods] = useState([
-  //   {id: 1, name: "Молоко"},
-  //   {id: 2, name: "Огурец"},
-  //   {id: 3, name: "Банан"},
-  //   {id: 4, name: "Хлеб"},
-  //   {id: 5, name: "Сыр"},
-  //   {id: 6, name: "Печенье"},
-  //   {id: 7, name: "Киви"},
-  //   {id: 8, name: "Спаржа"},
-  // ]);
-
   const [growth, setGrowth] = useState<string>('176');
   const [errorGrowth, setErrorGrowth] = useState<string>('');
   const [weight, setWeight] = useState<string>('73');
@@ -79,11 +69,11 @@ export function Calculator(props: themeCalculatorType) {
   const [age, setAge] = useState<string>('26');
   const [errorAge, setErrorAge] = useState<string>('');
   const [sex, setSex] = useState<string>('');
-  const [errorSearch, setErrorSearch] = useState<string>('');
+  const [productName, setProductName] = useState<string>('');
+  const [errorSearch, setErrorSearch] = useState<string>('initial');
   const [purpose, setPurpose] = useState<string>('');
   const [type, setType] = useState<string>('');
   const [active, setActive] = useState<string>('');
-  const [topFoodList, setTopFoodList] = useState<string[]>(['']);
   const [dragMode, setDragMode] = useState<boolean>(false);
 
   const lightTheme = props.theme;
@@ -129,16 +119,20 @@ export function Calculator(props: themeCalculatorType) {
     setSex('men')
   }, []);
 
-  const onBlurSearch = () => {
-    if (errorSearch === '') {
-      setErrorSearch('Не найдено')
-    }
+  const filterProductsValue = (e: ChangeEvent<HTMLInputElement>) => {
+    setProductName(e.currentTarget.value)
+    setErrorSearch('')
   };
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log('growth:' + growth, 'weight:' + weight, 'age:' + age, 'sex:' + sex, 'purpose:' + purpose, 'type:' + type, 'active:' + active);
-  }
+    alert(['growth:' + growth, 'weight:' + weight, 'age:' + age, 'sex:' + sex, 'purpose:' + purpose, 'type:' + type, 'active:' + active, 'selectProducts:' + finalProducts.map(p => p.name)]);
+    finalProducts.map(p => {
+      return (
+        dispatch(getFoodCalories(p.name))
+      )
+    })
+  };
 
   const moveCard = (dragIndex: number, hoverIndex: number) => {
     const dragItem = foods[dragIndex]
@@ -150,10 +144,10 @@ export function Calculator(props: themeCalculatorType) {
         return coppiedStateArray
       }))
     }
-  }
+  };
 
   return (
-    <div className={style.calculatorBlock}>
+    <div className={style.calculatorBlock} id={'calculator'}>
       <DndProvider backend={HTML5Backend}>
         <>
           <form onSubmit={handleSubmit}>
@@ -163,7 +157,8 @@ export function Calculator(props: themeCalculatorType) {
                   <h1 className={style.title}>Расчет рациона питания</h1>
                 </div>
                 <div className={lightTheme ? style.howToUse : style.howToUseDark}>
-                  <img src={lightTheme ? howToUseCover : howToUseCoverDark} className={style.howToUseCover}/>
+                  <img src={lightTheme ? howToUseCover : howToUseCoverDark} className={style.howToUseCover}
+                       alt={'block-cover'}/>
                   <div className={style.howToUseBlock}>
                     <h1>Как пользоваться</h1>
                     <div className={style.howToUseText}>
@@ -183,17 +178,19 @@ export function Calculator(props: themeCalculatorType) {
                     <div className={style.howToUseText}>
                       <p>Выберите ваши любимые продукты и распределите их от 1 до 10</p>
                     </div>
-                    <input value={profileId} onChange={(e) => setProfileId(e.currentTarget.valueAsNumber)}
-                           onBlur={onBlurSearch} placeholder={'Поиск'}
+                    <input value={productName} onChange={filterProductsValue}
+                           placeholder={'Поиск'}
                            className={lightTheme ? style.searchInput : style.searchInputDark}/>
-                    <SearchIcon  className={style.searchIcon}/>
-                    {errorSearch ? <div className={style.errorSearch}>{errorSearch}</div> : null}
+                    <SearchIcon className={style.searchIcon}/>
+                    {errorSearch && errorSearch !== 'initial' ?
+                      <div className={style.errorSearch}>{errorSearch}</div> : null}
                   </div>
                 </div>
                 <div className={lightTheme ? style.selectFood : style.selectFoodDark}>
                   <div className={style.howToUseBlock}>
                     <div className={style.scrollBlock}>
-                      <FoodList theme={lightTheme}/>
+                      <FoodList theme={lightTheme} productName={productName} setErrorSearch={setErrorSearch}
+                                errorSearch={errorSearch}/>
                     </div>
                   </div>
                 </div>
@@ -253,11 +250,13 @@ export function Calculator(props: themeCalculatorType) {
                   </div>
                 </div>
                 <div className={lightTheme ? style.foodConfirmed : style.foodConfirmedDark}>
-                  <img src={lightTheme ? foodCover : foodCoverDark} className={style.foodConfirmedCover}/>
+                  <img src={lightTheme ? foodCover : foodCoverDark} className={style.foodConfirmedCover}
+                       alt={'block-cover'}/>
                   <div className={style.foodConfirmedBlock}>
                     {foods.map((f, i) => {
                       return (
                         <FoodConfirmedList
+                          key={f.id}
                           item={f.name}
                           index={i}
                           id={f.id}
@@ -272,14 +271,15 @@ export function Calculator(props: themeCalculatorType) {
                 </div>
               </div>
             </div>
-            <img src={lightTheme ? coverBtnUp : coverBtnDarkUp} className={style.imgBtnRight}/>
-            <img src={lightTheme ? coverBtnDown : coverBtnDarkDown} className={style.imgBtnLeft}/>
+            <img src={lightTheme ? coverBtnUp : coverBtnDarkUp} className={style.imgBtnRight} alt={'btn-cover'}/>
+            <img src={lightTheme ? coverBtnDown : coverBtnDarkDown} className={style.imgBtnLeft} alt={'btn-cover'}/>
             <button type={'submit'} className={lightTheme ? style.btnComplete : style.btnCompleteDark}>РАССЧИТАТЬ
             </button>
             <div className={style.finalBlock}>
               <div className={style.leftBlock}>
                 <div className={lightTheme ? style.dietFinal : style.dietFinalDark}>
-                  <img src={lightTheme ? howToUseCover : howToUseCoverDark} className={style.dietFinalCover}/>
+                  <img src={lightTheme ? howToUseCover : howToUseCoverDark} className={style.dietFinalCover}
+                       alt={'block-cover'}/>
                   <hr className={lightTheme ? style.dietFinalHr : style.dietFinalHrDark}/>
                   <div className={style.dietFinalDataBlock}>
                     <h1>Ваш рацион</h1>
@@ -322,7 +322,9 @@ export function Calculator(props: themeCalculatorType) {
                   <div className={style.dietFinalDataBlock}>
                     <h1>Калорийность</h1>
                     <div className={style.dietResult}>
+
                       <FoodCalories theme={lightTheme}/>
+
                     </div>
                   </div>
                 </div>

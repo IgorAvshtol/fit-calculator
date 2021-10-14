@@ -1,3 +1,5 @@
+@import '../../styles/sass/mixins';
+
 .sidebar {
     width: 430px;
     position: sticky;
@@ -9,20 +11,14 @@
 }
 
 .clock {
-    font-family: SF Pro Display Regular;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 52px;
-    line-height: 44px;
+    @include text(52px, 44px, 600, normal);
+    font-family: $fontFamily;
     letter-spacing: 0.400345px;
 }
 
 .date {
-    font-family: SF Pro Display Regular;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 22px;
-    line-height: 26px;
+    @include text(22px, 26px, 500, normal);
+    font-family: $fontFamily;
     letter-spacing: 0.45px;
 }
 
@@ -96,17 +92,13 @@
 .purposeText {
     text-wrap: normal;
     padding-left: 16px;
-    font-family: SF Pro Display Regular;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 19px;
+    @include text(19px, 26px, 600, normal);
+    font-family: $fontFamily;
 }
 
 .purposeText div {
-    font-family: SF UI Text;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
+    @include text(15px, 26px, 500, normal);
+    font-family: $fontFamilyText;
 }
 
 .calculation {
@@ -139,15 +131,11 @@
 .calculationText {
     text-wrap: normal;
     padding-left: 16px;
-    font-family: SF Pro Display Regular;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 19px
+    @include text(19px, 26px, 600, normal);
+    font-family: $fontFamily;
 }
 
 .calculationText div {
-    font-family: SF UI Text;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
+    @include text(15px, 26px, 500, normal);
+    font-family: $fontFamilyText;
 }

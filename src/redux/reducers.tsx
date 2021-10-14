@@ -1,5 +1,5 @@
-import { Dispatch } from "redux";
-import { profileAPI } from "../api/api";
+import { Dispatch } from 'redux';
+import { profileAPI } from '../api/api';
 
 export type FoodType = {
   id: number,
@@ -28,14 +28,34 @@ export type productType = {
   name: string;
 }
 
+export type outputDataType = {
+  height: number
+  weight: number
+  sex: string
+  age: number
+  activity: string
+  nutrition: string
+  purpose: string
+  selectProducts: string[]
+}
+
+export type foodCaloriesType = {
+  product: string
+  calories: string
+}
+
 export type stateType = {
-  outputFoodList: UsersType[];
+  outputFoodList: UsersType[]
   inputFoodList: UsersType[]
+  outputData: outputDataType[]
+  foodCalories: foodCaloriesType[]
 }
 
 const initialState = {
   outputFoodList: [],
-  inputFoodList: []
+  inputFoodList: [],
+  outputData: [],
+  foodCalories: [{product: '', calories: ''}]
 }
 
 export const foodsReducer = (state: stateType = initialState, action: ActionsType) => {
@@ -44,6 +64,17 @@ export const foodsReducer = (state: stateType = initialState, action: ActionsTyp
       return {
         ...state,
         inputFoodList: action.foodList
+      }
+    }
+    case 'SEARCH_PRODUCT': {
+      return {
+        ...state,
+        inputFoodList: [...state.inputFoodList.filter(f => {
+            return (
+              f.name.toLowerCase().includes(action.productName.toLowerCase())
+            )
+          }
+        )]
       }
     }
     case 'REPLACE_FOOD': {
@@ -58,16 +89,27 @@ export const foodsReducer = (state: stateType = initialState, action: ActionsTyp
         outputFoodList: [...state.outputFoodList.filter(f => f.id !== action.foodId)]
       }
     }
+    case 'FOOD_CALORIES': {
+      return {
+        ...state,
+        foodCalories: [...state.foodCalories, {product: action.productName, calories: '223кКал'}]
+      }
+    }
     default:
       return state;
   }
 }
 
-type ActionsType = getFoodsListActionType | replaceFoodActionType | deleteFoodActionType;
+type ActionsType = getFoodsListActionType | replaceFoodActionType | deleteFoodActionType | searchProductActionType | getFoodCaloriesActionType;
 
 export interface getFoodsListActionType {
   type: 'GET_FOODS_LIST',
   foodList: UsersType[]
+}
+
+export interface searchProductActionType {
+  type: 'SEARCH_PRODUCT',
+  productName: string
 }
 
 export interface replaceFoodActionType {
@@ -81,10 +123,18 @@ export interface deleteFoodActionType {
   foodId: number
 }
 
+export interface getFoodCaloriesActionType {
+  type: 'FOOD_CALORIES',
+  productName: string
+}
+
 export const getFoodsList = (inputFoodList: UsersType[]): getFoodsListActionType => {
   return {type: 'GET_FOODS_LIST', foodList: inputFoodList}
 };
 
+export const searchProduct = (productName: string): searchProductActionType => {
+  return {type: 'SEARCH_PRODUCT', productName}
+};
 
 export const replaceFood = (foodTitle: string, id: number): replaceFoodActionType => {
   return {
@@ -101,9 +151,20 @@ export const deleteFood = (foodId: number): deleteFoodActionType => {
   } as const
 };
 
+export const getFoodCalories = (productName: string): getFoodCaloriesActionType => {
+  return {type: 'FOOD_CALORIES', productName}
+};
+
 export const getUsers = (currentPage: number, pageSize: number) => {
   return async (dispatch: Dispatch) => {
     let data = await profileAPI.getUsers(currentPage, pageSize)
     dispatch(getFoodsList(data.items))
   }
 }
+
+// export const outputData = (outputData: outputDataType) => {
+//   return async (dispatch: Dispatch) => {
+//     let data = await outputAPI.putData(outputData)
+//     dispatch(getFoodsList(data.items))
+//   }
+// }

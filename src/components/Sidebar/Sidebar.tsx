@@ -1,7 +1,10 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
-import style from './Sidebar.module.css';
+import { Link } from 'react-scroll';
+
+import style from './Sidebar.module.scss';
 import Switch from '@mui/material/Switch';
+
 
 type themeType = {
   theme: boolean;
@@ -54,23 +57,27 @@ export function Sidebar(props: themeType) {
         </div>
         <div className={style.navigation}>
           <div className={!purpose ? style.purpose : style.purposeScroll}>
-            <div
-              className={!purpose ? style.purposeContent : style.purposeContentScroll && props.theme ? style.purposeContentScroll : style.purposeContentScrollDark}>
-              <div className={props.theme ? style.circle : style.circleDark}/>
-              <div className={style.purposeText}>
-                С чего начать
-                <div>Цель</div>
+            <Link to={'instruction'} smooth={true}>
+              <div
+                className={!purpose ? style.purposeContent : style.purposeContentScroll && props.theme ? style.purposeContentScroll : style.purposeContentScrollDark}>
+                <div className={props.theme ? style.circle : style.circleDark}/>
+                <div className={style.purposeText}>
+                  С чего начать
+                  <div>Цель</div>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
           <div className={calculation ? style.calculation : style.calculationScroll}>
-            <div className={props.theme ? style.calculationContent : style.calculationContentDark}>
-              <div className={style.circle}/>
-              <div className={style.purposeText}>
-                Рацион питания
-                <div>Расчёт</div>
+            <Link to={'calculator'} smooth={true}>
+              <div className={props.theme ? style.calculationContent : style.calculationContentDark}>
+                <div className={style.circle}/>
+                <div className={style.purposeText}>
+                  Рацион питания
+                  <div>Расчёт</div>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

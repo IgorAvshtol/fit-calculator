@@ -1,3 +1,6 @@
+@import '../../styles/sass/variables';
+@import '../../styles/sass/mixins';
+
 .scrollBlock {
     max-height: 655px;
     display: flex;
@@ -29,7 +32,7 @@
 .scrollBlock::-webkit-scrollbar-thumb {
     width: 3px;
     height: 15px;
-    background: rgba(42, 42, 42, 0.5);
+    background: $bgColorDark;
     border-radius: 2px;
 }
 
@@ -43,7 +46,7 @@
 .scrollBlockDark::-webkit-scrollbar-thumb {
     width: 3px;
     height: 15px;
-    background: rgba(42, 42, 42, 0.5);
+    background: $bgColorDark;
     border-radius: 2px;
 }
 
@@ -73,11 +76,8 @@
     display: flex;
     justify-content: space-between;
     padding-left: 25px;
-    font-family: SF Pro Display Regular;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
+    @include text(16px, 19px, 500, normal);
+    font-family: $fontFamily;
 }
 
 .caloriesCalumn {

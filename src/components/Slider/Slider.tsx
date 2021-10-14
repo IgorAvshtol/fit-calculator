@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import style from './Slider.module.css';
+import style from './Slider.module.scss';
 
 type SliderContentType = {
   content: string[]
@@ -8,31 +8,22 @@ type SliderContentType = {
   setValue: (value: string) => void
 }
 
-export function Slider(props: SliderContentType) {
+export function Slider({content, theme, setValue}: SliderContentType) {
 
   const [current, setCurrent] = useState(0);
-  const length = props.content.length;
+  const length = content.length;
 
-  // const nextSlide = () => {
-  //   setCurrent(current === length - 1 ? 0 : current + 1);
-  // props.setValue(props.content[current + 1])
-  //
-  // };
-
-  // const prevSlide = () => {
-  //   setCurrent(current === 0 ? length - 1 : current - 1);
-  // };
   useEffect(() => {
-    props.setValue(props.content[0])
+    setValue(content[0])
   }, [])
 
   const nextSlide = () => {
     setCurrent((prev) => {
       if (prev === length - 1) {
-        props.setValue(props.content[0])
+        setValue(content[0])
         return 0
       }
-      props.setValue(props.content[prev + 1])
+      setValue(content[prev + 1])
       return prev + 1
     });
   };
@@ -40,33 +31,31 @@ export function Slider(props: SliderContentType) {
   const prevSlide = () => {
     setCurrent((prev) => {
       if (prev === 0) {
-        props.setValue(props.content[prev])
+        setValue(content[prev])
         return length - 1
       }
-      props.setValue(props.content[length - 1])
+      setValue(content[length - 1])
       return prev - 1
     });
   };
 
-  if (!Array.isArray(props.content) || props.content.length <= 0) {
+  if (!Array.isArray(content) || content.length <= 0) {
     return null;
   }
 
   return (
     <div>
-      {props.content.map((slide, index) => {
+      {content.map((slide, index) => {
         return (
-          <div
-            key={index}
-          >
+          <div key={index}>
             {index === current && (
-              <input disabled={true} className={props.theme ? style.input : style.inputDark} value={slide}/>
+              <input disabled={true} className={theme ? style.input : style.inputDark} value={slide}/>
             )}
           </div>
         );
       })}
-      <label onClick={nextSlide} className={props.theme ? style.labelNext : style.labelNextDark}/>
-      <label onClick={prevSlide} className={props.theme ? style.labelPrev : style.labelPrevDark}/>
+      <label onClick={nextSlide} className={theme ? style.labelNext : style.labelNextDark}/>
+      <label onClick={prevSlide} className={theme ? style.labelPrev : style.labelPrevDark}/>
     </div>
   );
 }

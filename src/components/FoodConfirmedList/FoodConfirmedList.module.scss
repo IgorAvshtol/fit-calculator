@@ -1,3 +1,6 @@
+@import '../../styles/sass/variables';
+@import '../../styles/sass/mixins';
+
 .scrollBlock {
     height: 695px;
     display: flex;
@@ -18,10 +21,9 @@
 .scrollBlock::-webkit-scrollbar-thumb {
     width: 3px;
     height: 15px;
-    background: rgba(42, 42, 42, 0.5);
+    background: $bgColorDark;
     border-radius: 2px;
 }
-
 
 .title {
     position: relative;
@@ -31,11 +33,8 @@
     background: rgba(255, 255, 255, 0.7);
     border-bottom: 2px solid #EFEFEF;
     padding-left: 45px;
-    font-family: SF Pro Display Regular;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
+    @include text(16px, 19px, 500, normal);
+    font-family: $fontFamily;
     border-radius: 10px;
 
 }
@@ -45,17 +44,12 @@
     display: flex;
     align-items: center;
     min-height: 65px;
-    width: 100%;
     background: rgba(39, 39, 39, 0.7);
     border-bottom: 2px solid #EFEFEF;
     padding-left: 45px;
-    font-family: SF Pro Display Regular;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
+    @include text(16px, 19px, 500, normal);
+    font-family: $fontFamily;
     border-radius: 10px;
-
 }
 
 .dehazeIcon {
@@ -66,7 +60,7 @@
 
 .dehazeIconDark {
     position: absolute;
-    right: 305px;
+    right: 260px;
     opacity: 0.2;
 }
 

@@ -5,9 +5,7 @@ import { Instruction } from '../Instruction/Instruction';
 import { Calculator } from '../Calculator/Calculator';
 
 import style from './Main.module.css';
-import s from '../../style/Container.module.css';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from "react-dnd-html5-backend";
+import s from '../../styles/Container.module.css';
 
 
 export function Main() {
@@ -20,10 +18,8 @@ export function Main() {
         <div className={s.container}>
           <Sidebar theme={theme} setTheme={setTheme}/>
           <div>
-            <DndProvider backend={HTML5Backend}>
-              <Instruction theme={theme}/>
-              <Calculator theme={theme}/>
-            </DndProvider>
+            <Instruction theme={theme}/>
+            <Calculator theme={theme}/>
           </div>
         </div>
       </div>
