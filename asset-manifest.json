@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/fit-calculator/static/css/main.cb63bef5.chunk.css",
-    "main.js": "/fit-calculator/static/js/main.855322f6.chunk.js",
-    "main.js.map": "/fit-calculator/static/js/main.855322f6.chunk.js.map",
-    "runtime-main.js": "/fit-calculator/static/js/runtime-main.155af629.js",
-    "runtime-main.js.map": "/fit-calculator/static/js/runtime-main.155af629.js.map",
-    "static/js/2.b1ccab86.chunk.js": "/fit-calculator/static/js/2.b1ccab86.chunk.js",
-    "static/js/2.b1ccab86.chunk.js.map": "/fit-calculator/static/js/2.b1ccab86.chunk.js.map",
-    "static/js/3.d7346153.chunk.js": "/fit-calculator/static/js/3.d7346153.chunk.js",
-    "static/js/3.d7346153.chunk.js.map": "/fit-calculator/static/js/3.d7346153.chunk.js.map",
+    "main.css": "/fit-calculator/static/css/main.d645a4a2.chunk.css",
+    "main.js": "/fit-calculator/static/js/main.241a204b.chunk.js",
+    "main.js.map": "/fit-calculator/static/js/main.241a204b.chunk.js.map",
+    "runtime-main.js": "/fit-calculator/static/js/runtime-main.7d6e4376.js",
+    "runtime-main.js.map": "/fit-calculator/static/js/runtime-main.7d6e4376.js.map",
+    "static/js/2.b276b269.chunk.js": "/fit-calculator/static/js/2.b276b269.chunk.js",
+    "static/js/2.b276b269.chunk.js.map": "/fit-calculator/static/js/2.b276b269.chunk.js.map",
+    "static/js/3.c3bb10de.chunk.js": "/fit-calculator/static/js/3.c3bb10de.chunk.js",
+    "static/js/3.c3bb10de.chunk.js.map": "/fit-calculator/static/js/3.c3bb10de.chunk.js.map",
     "index.html": "/fit-calculator/index.html",
-    "static/css/main.cb63bef5.chunk.css.map": "/fit-calculator/static/css/main.cb63bef5.chunk.css.map",
-    "static/js/2.b1ccab86.chunk.js.LICENSE.txt": "/fit-calculator/static/js/2.b1ccab86.chunk.js.LICENSE.txt",
+    "static/css/main.d645a4a2.chunk.css.map": "/fit-calculator/static/css/main.d645a4a2.chunk.css.map",
+    "static/js/2.b276b269.chunk.js.LICENSE.txt": "/fit-calculator/static/js/2.b276b269.chunk.js.LICENSE.txt",
     "static/media/index.css": "/fit-calculator/static/media/SFUIText-Regular.865a0aa3.woff",
     "static/media/btnCoverDarkDown.b6780fef.png": "/fit-calculator/static/media/btnCoverDarkDown.b6780fef.png",
     "static/media/btnCoverDarkUp.ea02d5a1.png": "/fit-calculator/static/media/btnCoverDarkUp.ea02d5a1.png",
@@ -19,16 +19,17 @@
     "static/media/btnCoverUp.cc4eb8c8.png": "/fit-calculator/static/media/btnCoverUp.cc4eb8c8.png",
     "static/media/foodCover.c2c3e7e7.png": "/fit-calculator/static/media/foodCover.c2c3e7e7.png",
     "static/media/foodCoverDark.f177e64d.png": "/fit-calculator/static/media/foodCoverDark.f177e64d.png",
-    "static/media/Calculator.module.css": "/fit-calculator/static/media/howUseDark.1f3c16c3.png",
+    "static/media/Calculator.module.scss": "/fit-calculator/static/media/howUseDark.1f3c16c3.png",
     "static/media/howUseCover.0a16a3a9.png": "/fit-calculator/static/media/howUseCover.0a16a3a9.png",
     "static/media/howUseCoverDark.1c2b3c25.png": "/fit-calculator/static/media/howUseCoverDark.1c2b3c25.png",
+    "static/media/loader.e61adeab.png": "/fit-calculator/static/media/loader.e61adeab.png",
     "static/media/Main.module.css": "/fit-calculator/static/media/mainDark.4262b83d.png",
-    "static/media/Instruction.module.css": "/fit-calculator/static/media/noiseDark.f80b1ba9.png"
+    "static/media/Instruction.module.scss": "/fit-calculator/static/media/noiseDark.f80b1ba9.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.155af629.js",
-    "static/js/2.b1ccab86.chunk.js",
-    "static/css/main.cb63bef5.chunk.css",
-    "static/js/main.855322f6.chunk.js"
+    "static/js/runtime-main.7d6e4376.js",
+    "static/js/2.b276b269.chunk.js",
+    "static/css/main.d645a4a2.chunk.css",
+    "static/js/main.241a204b.chunk.js"
   ]
 }
