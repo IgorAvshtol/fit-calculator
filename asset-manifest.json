@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/fit-calculator/static/css/main.9d62302a.chunk.css",
-    "main.js": "/fit-calculator/static/js/main.9e53a417.chunk.js",
-    "main.js.map": "/fit-calculator/static/js/main.9e53a417.chunk.js.map",
+    "main.js": "/fit-calculator/static/js/main.a098f864.chunk.js",
+    "main.js.map": "/fit-calculator/static/js/main.a098f864.chunk.js.map",
     "runtime-main.js": "/fit-calculator/static/js/runtime-main.68c22c78.js",
     "runtime-main.js.map": "/fit-calculator/static/js/runtime-main.68c22c78.js.map",
     "static/js/2.ffe406ca.chunk.js": "/fit-calculator/static/js/2.ffe406ca.chunk.js",
@@ -30,6 +30,6 @@
     "static/js/runtime-main.68c22c78.js",
     "static/js/2.ffe406ca.chunk.js",
     "static/css/main.9d62302a.chunk.css",
-    "static/js/main.9e53a417.chunk.js"
+    "static/js/main.a098f864.chunk.js"
   ]
 }
